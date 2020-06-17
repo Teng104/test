@@ -2,6 +2,7 @@ pipeline {
     stages{
         stage("test") {
 	    echo "Hi"
+	    echo "Hello"
 	}
     post {
         always {
