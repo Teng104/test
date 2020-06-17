@@ -6,7 +6,7 @@ pipeline {
     post {
         always {
 	    emailext attachLog: false,
-	    to: 'aaa@bbb.com'
+	    to: '$DEVOPS_TEAM_MAIL_LIST'
         }
     }
 }
