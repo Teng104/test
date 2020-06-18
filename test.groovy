@@ -5,8 +5,8 @@ pipeline {
             steps {
                 echo "Hi, dev"
                 echo env.GIT_BRANCH
-                echo "Type 1: ${GIT_BRANCH##origin/}"
-		echo "Type 2: ${GIT_BRANCH#*/}"
+		git_branch = env.GIT_BRANCH.split("/")[env.GIT_BRANCH.split("/").length - 1]
+		echo git_branch
             }
         }
     }
