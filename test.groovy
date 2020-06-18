@@ -5,8 +5,8 @@ pipeline {
             steps {
                 echo "Hi, dev"
                 echo env.GIT_BRANCH
-                echo "GIT_LOCAL_BRANCH: ${env.GIT_LOCAL_BRANCH}"
-		echo "GIT_BRANCH_LOCAL: ${env.GIT_BRANCH_LOCAL}"
+                echo "Type 1: ${env.GIT_BRANCH##origin/}"
+		echo "Type 2: ${env.GIT_BRANCH#*/}"
             }
         }
     }
