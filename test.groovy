@@ -1,13 +1,13 @@
 pipeline {
+    agent { label "master" }
     stages{
         stage("test") {
-	    echo "Hi"
-	    echo "Hello"
-	}
-    post {
-        always {
-	    emailext attachLog: false,
-	    to: '$DEVOPS_TEAM_MAIL_LIST'
+            steps {
+                echo "Hi, dev"
+                echo env.GIT_BRANCH
+                echo "GIT_LOCAL_BRANCH: ${env.GIT_LOCAL_BRANCH}"
+		echo "GIT_BRANCH_LOCAL: ${env.GIT_BRANCH_LOCAL}"
+            }
         }
     }
 }
