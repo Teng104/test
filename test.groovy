@@ -1,8 +1,12 @@
 pipeline {
+    agent { label "master" }
     stages{
         stage("test") {
-	    echo "Hi"
-	    echo "GIT_BRANCH: $GIT_BRANCH"
-	    echo GIT_LOCAL_BRANCH
-	}
+            steps {
+                echo "Hi"
+                echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+                echo env.GIT_LOCAL_BRANCH 
+            }
+        }
+    }
 }
