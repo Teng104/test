@@ -2,11 +2,7 @@ pipeline {
     stages{
         stage("test") {
 	    echo "Hi"
+	    echo "GIT_BRANCH: $GIT_BRANCH"
+	    echo GIT_LOCAL_BRANCH
 	}
-    post {
-        always {
-	    emailext attachLog: false,
-	    to: '$DEVOPS_TEAM_MAIL_LIST'
-        }
-    }
 }
