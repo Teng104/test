@@ -1,7 +1,7 @@
 def isMaster() {
     return (env.GIT_BRANCH != "origin/dev")
 }
-def jobSuffix = isMaster() ? "" : "-Dev"
+def jobSuffix = (env.GIT_BRANCH != "origin/dev") ? "" : "-Dev"
 pipeline {
     agent { label "master" }
     stages{
