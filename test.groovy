@@ -7,6 +7,8 @@ pipeline {
         stage("test") {
             steps {
 	        script {
+		    job_suffix = isMaster() ? "" : "-Dev"
+		    build job: "OpenBMC${job_suffix}/Colin-Branch-Sub-Test${job_suffix}"
 		    str = isMaster() ? "master" : "dev"
                     echo "Hi, ${str}"
                     echo env.GIT_BRANCH
