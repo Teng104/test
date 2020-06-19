@@ -8,6 +8,7 @@ pipeline {
         stage("test") {
             steps {
 	        script {
+		    echo "${jobSuffix}"
 		    build job: "OpenBMC${jobSuffix}/Colin-Branch-Sub-Test${jobSuffix}"
 		    str = isMaster() ? "master" : "dev"
                     echo "Hi, ${str}"
