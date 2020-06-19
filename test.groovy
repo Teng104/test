@@ -1,6 +1,7 @@
 def isMaster() {
     return (env.GIT_BRANCH != "origin/dev")
 }
+jubSuffix = isMaster() ? "" : "-Dev"
 pipeline {
     agent { label "master" }
     stages{
@@ -8,7 +9,8 @@ pipeline {
             steps {
 	        script {
 		    job_suffix = isMaster() ? "" : "-Dev"
-		    build job: "OpenBMC${job_suffix}/Colin-Branch-Sub-Test${job_suffix}"
+		    echo jubSuffix
+		    //build job: "OpenBMC${jubSuffix}/Colin-Branch-Sub-Test${jubSuffix}"
 		    str = isMaster() ? "master" : "dev"
                     echo "Hi, ${str}"
                     echo env.GIT_BRANCH
