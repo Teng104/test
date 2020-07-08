@@ -1,3 +1,4 @@
+def branchName = env.GIT_BRANCH
 def isMaster() {
     return (env.GIT_BRANCH != "origin/dev")
 }
@@ -7,6 +8,7 @@ pipeline {
         stage("test") {
             steps {
                 script {
+                    echo branchName
                     job_suffix = isMaster() ? "" : "-Dev"
                     echo "OpenBMC${job_suffix}/Colin-Branch-Sub-Test${job_suffix}"
                     str = isMaster() ? "master" : "dev"
