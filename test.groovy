@@ -9,6 +9,7 @@ pipeline {
             steps {
                 script {
 		    echo "New Feature"
+		    echo "New feature 2"
                     echo branchName
                     job_suffix = isMaster() ? "" : "-Dev"
                     echo "OpenBMC${job_suffix}/Colin-Branch-Sub-Test${job_suffix}"
